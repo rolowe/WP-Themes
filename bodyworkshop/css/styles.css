@@ -1,0 +1,183 @@
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import url(http://fonts.googleapis.com/css?family=Gloria+Hallelujah);
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Montserrat', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: #6c828f;
+  background: #FFFFFF;
+  font-weight: normal;
+  text-align: center;
+}
+
+h1, h2, h3, h4, h5 {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 28px;
+  padding-bottom: 15px;
+}
+
+p {
+    font-weight: lighter;
+    line-height: 22px;
+    padding-bottom: 15px;
+}
+
+em {
+  font-style: italic;
+}
+
+h2.tagline {
+    width: 100%;
+    display: inline-block;
+    font-family: 'Gloria Hallelujah', cursive;
+    font-weight: 600;
+    text-transform: none;
+    font-size: 32px;
+    color: #eb2f2f;
+    padding-top: 10px;
+}
+
+header p {
+  padding-top: 20px;
+}
+
+article {
+  background: #ec2c2e;
+  color: #FFF;
+  text-align: center;
+  padding: 25px 0;
+}
+
+
+section.dance {
+  position: relative;
+}
+
+.angle_container {
+  width: 100%;
+  display: block;
+  position: absolute;
+  top: 0;
+  overflow: hidden;
+  z-index: 9;
+}
+.angle {
+  position: relative;
+  display: block;
+  width: 8%;
+  height: auto;
+  margin: 0 46%;
+}
+
+article h3 {
+  font-size: 30px;
+}
+
+section {
+  width: 100%;
+  border-bottom: solid 50px #FFF;
+  position: relative;
+}
+
+section.dance {
+  padding-top: 50px;
+  background: url(../img/border.png) top left repeat-x;
+}
+
+section .slideshow {
+  float: left;
+  overflow: hidden;
+  min-height: 300px;
+  position: relative;
+}
+section .slideshow img {
+  height: 100%;
+  width: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+section .container {
+  background: #d5d5d5;
+}
+
+section .slideshow {
+  width: 55%;
+}
+
+.container {
+  max-width:1200px;
+  width: 100%;
+  overflow:hidden;
+  margin: 0 auto;
+}
+
+.info {
+  padding: 4% 3%;
+  width: 39%;
+  float: left;
+}
+.info a {
+  display: inline-block;
+  clear: both;
+  float: none;
+  padding:8px 20px;
+  background: #6c828c;
+  color: #FFFFFF!important;
+  text-decoration:none;
+}
+.info a:hover {
+  background:#eb2f2f;
+  text-decoration:none;
+}
+
+header {
+  padding: 30px 0;
+  border-bottom: #6c828f solid 30px;
+}
+
+.third {
+  width: 33.3%;
+  float: left;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 900px) {
+
+  .third,
+  section img,
+  section .info {
+    width: 100%;
+    float: none;
+    clear: both;
+  }
+  section .info {
+    width: 80%;
+    padding: 4% 8%;
+    text-align: left!important;
+  }
+}
+
+.third img {
+  max-width: 100%;
+}
+
+
+footer {
+  text-align: center;
+  background: #9eabb3;
+  border-top: #6c828f 30px solid;
+  padding: 40px 0;
+  color: #FFF;
+  text-transform: uppercase;
+}
