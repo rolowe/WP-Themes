@@ -44,9 +44,19 @@
 
 <?php wp_head(); ?>
 
+
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WCJ5XBZ');</script>
+
 </head>
 
 <body <?php body_class(); ?>>
+
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WCJ5XBZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <?php gents_container(); // before container hook ?>
 
@@ -80,7 +90,6 @@
            <?php if( bi_get_data('custom_logo') !== '' ) { ?>
             <div id="logo"><a href="<?php echo home_url(); ?>/" title="<?php bloginfo( 'name' ); ?>" rel="home">
                 <img src="<?php echo bi_get_data('custom_logo'); ?>" alt="<?php bloginfo( 'name' ) ?>" />
-		<span><?php bloginfo( 'name' ); ?></span>
             </a></div>
             <?php } else { ?>
             <?php if (is_front_page()) { ?>

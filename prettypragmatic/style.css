@@ -11,7 +11,7 @@ Tags: white, black, gray, light, custom-menu, custom-header, custom-background, 
 CSS Rules: Sorted alphabetically for better organization.
 */
 
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700,300);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,300);
 
 @font-face {
     font-family: 'novecento_sans_widelight';
@@ -50,11 +50,15 @@ body {
 
 .navbar {
   padding-top: 10px;
+  min-height: 60px;
 }
 
+#menu-header-menu {
+  margin-top: 2px;
+}
 
 #wrapper {
-	padding-top: 55px;
+  padding-top: 55px;
 }
 
 /* Titles */
@@ -79,15 +83,52 @@ body.single #content h4 {
 	text-align: left;
 }
 header.blog-heading h4.post-title {
-	font-size: 30px;
-   	margin: 0;
-    	text-align: left;
-    	display: inline-block;
-    	padding: 0;
-    	width: 70%;
-    	float: left;
+	font-size: 33px;
+  	margin: 0;
+  	text-align: left;
+  	display: inline-block;
+  	padding: 0;
+  	width: 70%;
+  	float: left;
 	border: none;
 	padding-top: 8px;
+	border-bottom: solid 1px #f26b7a;
+	padding-bottom: 30px;
+	margin-bottom: 30px;
+	text-transform: lowercase;
+}
+body.page-template-blog div.read-more {
+  text-align: center;
+}
+body.page-template-blog div.read-more p,
+.pager li>a {
+    font-family: 'novecento_sans_wide_bookbold', Arial;
+    font-weight: bold;
+    font-size: 22px;
+    display: inline-block;
+    padding: 6px 22px 10px;
+    border: solid 2px #1f1f1f;
+    background: none transparent;
+    color: #1f1f1f;
+    min-width: 235px;
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 0;
+    text-transform: lowercase;
+}
+.pager li>a {
+    color: #9f9f9f;
+    border: solid 2px #9f9f9f;
+}
+
+body.page-template-blog div.read-more p:hover {
+    border: solid 2px #1f1f1f;
+    background: #1f1f1f;
+    color: #FFF;
+}
+
+body.page-template-blog section.post-entry img {
+	margin-bottom: 20px;
 }
 
 header.blog-heading h4.post-title a {
@@ -99,7 +140,7 @@ header.blog-heading h4.post-title a:hover {
 
 header.blog-heading .post-meta {
 	clear: none;
-    	width: 30%;
+    	width: 28%;
 	float: right;
     	margin: 0;
 }
@@ -207,58 +248,9 @@ ba { font-size: 12px; padding-left: 5px; text-transform: uppercase; }
 /* Blog Tags */
 bt { font-size: 12px; }
 
-/* ================== PORTFOLIO IMAGES HOVER EFFECT ================== */
-/* Effects also are controled by hover.zoom.js */
-.zoom {
-    display:block;
-    position:relative;
-    overflow:hidden;
-    background:transparent url(images/loader.gif) no-repeat center;
-}
-
-
-.zoomOverlay {
-    position:absolute;
-    top:0; left:0;
-    bottom:0; right:0;
-    display:none;
-    background-image:url(images/zoom.png);
-    background-repeat:no-repeat;
-    background-position:center;
-}
-
-.zoom2 {
-	opacity: 1;
-}
-
-.zoom2:hover {
-	opacity: 0.5;
-}
-
-/* glyphicon Configuration */
-
-.glyphicon { color: #1abc9c; font-size: 40px; }
-
-/* WP User Avatar */
-
-.wp-user-avatar {margin: 0;}
-
-
 
 
 /*///// RL - SPECIFIC STYLES ////*/
-
-div.banner {
-}
-
-div.port-desc {
-	padding: 0 35px;
-}
-
-div.port-desc p {
-	font-size: 13px;
-	line-height: 24px;
-}
 
 .logo-container {
 	height: 120px;
@@ -280,7 +272,7 @@ div.port-desc p {
 }
 
 .page-template-template-portfolio .container .col-lg-4 {
-	min-height: 270px;
+	min-height: 285px;
 	margin-bottom: 20px;
 }
 
@@ -313,6 +305,17 @@ div#logo a img {
 	margin-top: 2px
 }
 
+@media screen and (max-width: 768px) {
+  div#logo a img {
+    margin-top: 10px;
+  }
+}
+@media screen and (max-width: 420px) {
+  div#logo a img {
+    margin-top: 4px;
+  }
+}
+
 div#logo a span {
 	font-family: 'novecento_sans_widelight', 'Open Sans', Arial;
   	text-transform: uppercase;
@@ -341,28 +344,12 @@ a.social_link:hover {
 }
 
 
-div.services img {
-	max-width: 120px;
-	height: auto;
-}
-div.services .logo-container {
-	height: 160px;
-}
-
-div.services h3 {
-	font-family: 'novecento_sans_widelight', 'Open Sans', Arial;
-    	text-transform: uppercase;
-}
 
 body .navbar-collapse,
 .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
 	box-shadow: none;
 	border: none;
 	border-color: transparant;
-}
-
-body.page-template-blog #wrapper header {
-	padding: 0 20px;
 }
 
 
@@ -392,19 +379,70 @@ textarea.wpcf7-form-control {
     height: auto;
 }
 .wpcf7-form input[type=submit] {
-    padding: 10px 35px;
     background: none #66686c;
     border: none;
-    text-transform: uppercase;
     color: #FFFFFF;
     border-radius: 0;
     width: auto;
     height: auto;
+    display: inline-block;
+    margin: 0 auto;
+    font-size: 26px;
 }
 .wpcf7-form input[type=submit]:hover {
     background: none #f26b7a;
     color: #FFFFFF;
     cursor: pointer;
+}
+
+.wpcf7-form label {
+      display: inline-block;
+      font-family: 'novecento_sans_widelight', 'Open Sans', Arial;
+      color: #66686c;
+      text-align: left;
+      float: left;
+      font-size: 16px;
+}
+
+.wpcf7-form input[type=text],
+.wpcf7-form input[type=email],
+.wpcf7-form textarea {
+  width: 90%;
+  border: solid 1px #66686c;
+  padding: 20px;
+  border-radius: 0;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-size: 16px;
+}
+.wpcf7-form textarea {
+  max-height: 145px;
+  margin-bottom: 30px;
+}
+
+.form_container {
+      margin: 0 auto;
+      padding: 30px 0 5px;
+      background-color: #fff;
+}
+.wpcf7-form {
+  display: block;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 640px) {
+
+  .wpcf7-form {
+    clear: both;
+    width: 80%;
+    margin: 0 auto;
+  }
+  .wpcf7-form input[type=text],
+  .wpcf7-form input[type=email],
+  .wpcf7-form textarea {
+    width: 100%;
+  }
+
 }
 
 
@@ -431,7 +469,7 @@ textarea.wpcf7-form-control {
 	header.blog-heading .post-meta {
 		float: none;
 		clear: both;
-		width: 50%;
+		width: 100%;
 		padding-top: 20px;
 	}
 
@@ -474,13 +512,14 @@ textarea.wpcf7-form-control {
 
 h2 {
     font-family: 'novecento_sans_widelight', 'Open Sans', Arial;
-    font-size: 46px;
+    font-size: 42px;
     margin: 30px auto 60px;
     width: 80%;
     padding-bottom: 18px;
     border-bottom: solid 1px #f26b7a;
     font-weight: 400;
     text-align: center;
+    text-transform: lowercase;
 }
 
 body.home section {
@@ -492,7 +531,7 @@ body.home section {
 
 .padding {
 	display: block;
-	max-width: 500px;
+	max-width: 560px;
 	width: 100%;
 	margin: 0 auto;
 }
@@ -554,7 +593,13 @@ button a:hover,
 }
 
 
-
+.page-template-template-portfolio div.port-desc {
+    padding: 0 35px;
+}
+.page-template-template-portfolio div.port-desc p {
+    font-size: 13px;
+    line-height: 24px;
+}
 
 
 /******** VIDEO SECTION *********/
@@ -565,7 +610,7 @@ section.video .video-container {
 	height: 80vh;
 	overflow: hidden;
 	position: relative;
-	background-color: #66686c;
+	background-color: #717377;
 }
 section.video .video-container video {
 	position: relative;
@@ -587,6 +632,9 @@ section.blog .info {
     top: 50%;
     transform: translateY(-50%);
     -webkit-transform: translateY(-50%);
+}
+section.blog .info {
+  top: 55%;
 }
 section.video .info .padding {
 	max-width: 600px;
@@ -615,20 +663,19 @@ body.home section.services button {
 
 body.home section.services li {
 	display: block;
-	width: 25%;
-	padding: 0 2%;
+	width: 33%;
 	margin: 0;
 	float: left;
-	border-right: solid 1px #f26b7a;
+  	min-height: 220px;
 }
-body.home section.services li:last-child {
-	border-right: none;
+body.home section.services li:nth-child(4) {
+	margin-left: 17%;
 }
 body.home section.services li img {
 	display: block;
-    margin: 25px auto 40px;
-    max-height: 95px;
-    width: auto;
+    	margin: 25px auto 40px;
+    	max-height: 120px;
+    	width: auto;
 }
 body.home section.services li h3 {
 	font-family: 'novecento_sans_widelight', 'Open Sans', Arial;
@@ -636,8 +683,58 @@ body.home section.services li h3 {
 	font-weight: 400;
 	text-align: center;
 }
+body.home section.services li h3 a {
+	color: #333;
+}
+body.home section.services li h3 a:hover {
+	color: #f26b7a;
+}
+body.home section.services li a:hover img {
+	opacity: 0.8;
+}
 
 
+/******** CLIENTS SECTION *********/
+
+body.home section.clients h2 {
+  margin: 50px auto 25px;
+}
+
+body.home section.clients ul {
+  margin: 0 0 40px;
+  padding: 0;
+  overflow: hidden;
+}
+body.home section.clients li {
+  list-style: none;
+  float: left;
+  width: 29%;
+  margin: 0 2% 0;
+  min-height: 175px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+body.home section.clients li img {
+    width: auto;
+    margin: 0 auto;
+    max-height: 85px;
+    display: block;
+}
+body.home section.clients li:nth-child(2) img { max-height: 65px; }
+body.home section.clients li:nth-child(3) img { max-height: 65px; }
+
+@media screen and (max-width: 640px) {
+
+  body.home section.clients li {
+    width: 100%;
+    margin: 0;
+    clear: both;
+    min-height: none;
+  }
+
+}
 
 
 /******** SOCIAL ICONS *********/
@@ -656,6 +753,7 @@ body.home section.how h2 {
 /******** BLOG SECTION *********/
 body.home section.blog {
 	position: relative;
+  	max-height: 540px;
 }
 body.home section.blog img {
 	width: 100%;
@@ -703,12 +801,30 @@ section.contact p {
 	font-size: 22px;
 	line-height: 34px;
 }
+section.contact p a {
+	color: #FFF;
+}
+section.contact p a:hover {
+	color: #f26b7a;
+}
+
+
 
 
 /******** SOCIAL ICONS *********/
 
 section.social .twitter {
 	background-color: #55acee;
+}
+section.social .instagram {
+	background-color: #435667;
+}
+section.social .linkedin {
+	background-color: #0077b5;
+}
+section.social .instagram img,
+section.social .linkedin img {
+	filter: brightness(0) invert(1);
 }
 
 section.social .container {
@@ -724,7 +840,7 @@ section.social .social-link img {
 
 section.social .social-link {
     position: relative;
-    width: 33%;
+    width: 33.333%;
     font-size: 52px;
     color: #fff;
     padding: 22px 0px 22px 0px;
@@ -732,6 +848,13 @@ section.social .social-link {
     overflow: hidden;
     transition: all .3s ease;
     -webkit-transition: all .3s ease;
+}
+
+@media screen and (max-width: 640px) {
+
+	.social-link:hover .link-hover {
+		font-size: 18px;
+	}
 }
 
 .social-link{ position: relative; font-size: 52px; color: #fff; padding: 22px 0px 22px 0px; float: left; overflow: hidden; transition: all .3s ease; -webkit-transition: all .3s ease; }
@@ -770,10 +893,10 @@ section.social .twitter .link-hover {
 	color: #FFF!important;
 }
 section.social .instagram .link-hover {
-	color: #000!important;
+	color: #FFF!important;
 }
 section.social .linkedin .link-hover {
-	color: #2f7eaf!important;
+	color: #FFF!important;
 }
 
 
@@ -829,7 +952,7 @@ section.social .linkedin .link-hover {
 	}
 	section.video {
 		background: ;
-		background: url(images/mobile_header.png) center center no-repeat #66686c;
+		background: url(images/mobile_header.png) center center no-repeat #717377;
 		min-height: 440px;
 	}
 	section.video .info {
@@ -849,7 +972,23 @@ section.social .linkedin .link-hover {
 	    width: 50%;
 	    padding: 0 2%;
 	    border-right: none;
+      	    min-height: 220px;
+	    margin: 0;
 	}
+	body.home section.services li:nth-child(4) {
+		margin-left: 0;
+	}
+	body.home section.services li:nth-child(5) {
+		clear: both;
+		margin: 40px auto 20px;
+		float: none;
+		min-height: 50px;
+	}
+
+	body.home section.services li img {
+	    width: 60%;
+	}
+
 
 	.half {
 	    width: 100%;
@@ -863,7 +1002,7 @@ section.social .linkedin .link-hover {
 	}
 	body.home section.blog img {
 		width: 200%;
-    		margin-left: -66%;
+    margin-left: -66%;
 		max-width: none;
 	}
 	body.home section.blog .info {
@@ -931,4 +1070,179 @@ section.social .linkedin .link-hover {
     cursor: pointer;
     background: #FFF;
     color: #333;
+}
+
+
+
+
+/***** NEW SERVICES PAGE *****/
+
+.page-template-template-services #wrapper .container {
+  width: 100%;
+}
+
+.mt.services {
+	margin-bottom: 0;
+}
+
+div.service {
+	overflow: hidden;
+	position: relative;
+  min-height: 300px;
+}
+
+div.service .service-logo-container {
+	width: 25%;
+	float: left;
+ 	overflow: hidden;
+	margin: 10px 10% 10px 0;
+}
+
+div.service .service-logo-container img {
+	max-width: 100%;
+	display: block;
+}
+#sales.service .service-logo-container {
+	margin: 0 10% 0 0;
+}
+
+#brand-and-design .service-logo-container img,
+#social-and-content .service-logo-container img,
+#campaigns .service-logo-container img {
+	
+}
+
+
+div.service.grey { background-color: #66686c; }
+div.service.red { background-color: #f26b7a; }
+div.service.green { background-color: #48b3b9; }
+div.service.blue { background-color: #5687c5; }
+div.service.yellow { background-color: #ebae38; }
+
+.service-desc {
+	float: left;
+	overflow: hidden;
+	width: 45%;
+  	padding: 2% 0;
+}
+
+.service-desc p {
+	color: #FFF;
+}
+
+.service-desc h3 {
+	font-size: 40px;
+   	color: #FFF;
+	font-family: 'novecento_sans_wide_bookbold';
+	text-transform: lowercase;
+	font-weight: 800;
+
+	border-bottom: solid 1px #FFF;
+    	display: inline-block;
+    	padding-bottom: 20px;
+    	margin-bottom: 20px;
+}
+
+.service-desc button a {
+	border: solid 2px #FFF;
+	color: #FFF;
+	margin: 0;
+  	font-size: 22px;
+}
+.service-desc button a:hover {
+	background-color: #000;
+}
+
+.service-desc button {
+	margin: 0;
+}
+
+
+
+
+@media screen and (max-width: 980px) {
+
+  div.service .service-logo-container {
+    display: none;
+  }
+  .service-desc {
+    width: 80%;
+    top: auto;
+    left: auto;
+    margin: 5% auto;
+    float: none;
+    transform: initial;
+    position: relative;
+  }
+
+}
+
+
+
+/*//////////PROMO CONTENT /////////////*/
+
+body.home section.promo {
+	background: #FFF;
+}
+
+body.home section.promo .info {
+	font-family: 'novecento_sans_widelight', 'Open Sans', Arial;
+	color: #FFF!important;
+	text-align: center;
+	z-index: 2;
+	max-width: 960px;
+    	margin: 60px auto 0;
+	
+}
+body.home section.promo .info h4 {
+	font-family: 'novecento_sans_widelight', 'Open Sans', Arial;
+	font-size: 22px;
+	padding: 20px 20%;
+	margin: 30px;
+	display: inline-block;
+	text-transform: lowercase;
+	font-weight: 400;
+}
+body.home section.promo .city {
+	width: 100%;
+}
+
+body.home section.promo a {
+    font-family: 'novecento_sans_wide_bookbold', Arial;
+    font-weight: bold;
+    font-size: 22px;
+    display: block;
+    padding: 6px 22px 10px;
+    border: solid 2px #1f1f1f;
+    background: none transparent;
+    color: #1f1f1f;
+    max-width: 235px;
+    margin: 0 auto;
+}
+body.home section.promo a:hover {
+    border: solid 2px #1f1f1f;
+    background: #1f1f1f;
+    color: #FFF;
+}
+
+body.home section.promo .wpcf7-form input[type=email] {
+	width: 60%;
+	margin: 0 auto;
+}
+
+body.home section.promo div.wpcf7-response-output {
+	display: none!important;
+}
+
+body.home section.promo span.wpcf7-not-valid-tip {
+	text-align: center;
+}
+
+@media screen and (max-width: 640px) {
+
+	body.home section.promo .info h4 {
+		padding: 20px 0;
+		margin: 0;
+	}
+
 }

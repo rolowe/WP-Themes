@@ -22,22 +22,22 @@
 
 <section class="social">
 	<div class="container">
-		<div class="social-link linkedin">
-			<a href="https://www.linkedin.com/company/9479985" target="_blank">
-				<div class="icon"><img src="<?php echo get_template_directory_uri();?>/images/linkedin_icon.png" alt="LinkedIn" /></div>
-				<div class="link-hover">Follow us</div>
-			</a>
-		</div>
 		<div class="social-link twitter">
 			<a href="https://twitter.com/PrettyPrag" target="_blank">
 				<div class="icon"><img src="<?php echo get_template_directory_uri();?>/images/twitter_icon.png" alt="Twitter" /></div>
-				<div class="link-hover">Follow us</div>
+				<div class="link-hover">follow us</div>
 			</a>
 		</div>
 		<div class="social-link instagram">
 			<a href="https://www.instagram.com/prettyprag/" target="_blank">
 				<div class="icon"><img src="<?php echo get_template_directory_uri();?>/images/instagram_icon.png" alt="Instagram" /></div>
-				<div class="link-hover">Follow us</div>
+				<div class="link-hover">follow us</div>
+			</a>
+		</div>
+		<div class="social-link linkedin">
+			<a href="https://www.linkedin.com/company/9479985" target="_blank">
+				<div class="icon"><img src="<?php echo get_template_directory_uri();?>/images/linkedin_icon.png" alt="LinkedIn" /></div>
+				<div class="link-hover">follow us</div>
 			</a>
 		</div>
 	</div>
@@ -108,7 +108,7 @@ jQuery(document).ready(function() {
 	
 </div>
 		
-	<p>&copy; 2016 pretty pragmatic ltd<br />company number: 09518414</p>
+	<p>&copy; 2017 pretty pragmatic ltd<br />company number: 09518414</p>
       </div>
 
     </div>

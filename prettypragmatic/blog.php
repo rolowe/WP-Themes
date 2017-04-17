@@ -5,8 +5,8 @@
    Template Name: Blog
  *
  * @file           blog.php
- * @package        StanleyWP 
- * @author         Brad Williams & Carlos Alvarez 
+ * @package        StanleyWP
+ * @author         Brad Williams & Carlos Alvarez
  * @copyright      2011 - 2014 Gents Themes
  * @license        license.txt
  * @version        Release: 3.0.3
@@ -39,13 +39,13 @@
     $paged = 1;
   }
   query_posts( array( 'post_type' => 'post', 'paged' => $paged ) );
-  ?>   
+  ?>
 
 
   <?php if (have_posts()) : ?>
 
   <?php
-  $c = 0; 
+  $c = 0;
   $color_id = 'grey';
   ?>
 
@@ -68,18 +68,30 @@
 
                   <header class="blog-heading">
                     <h4 class="post-title"><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" ><?php the_title(); ?></a></h4>
-			<section class="post-meta">          
+			<section class="post-meta">
                       		<p class="author-avatar">
 					<?php echo get_avatar( get_the_author_meta( 'ID' ), 50 ); ?><ba><?php the_author_meta( 'display_name' ); ?></ba>
 					<!--<bd><time class="post-date"><?php //the_date(); ?></time><bd>-->
-				</p>              
+				</p>
                   	</section><!-- end of .post-meta -->
                   </header>
 
 
                   <section class="post-entry">
-                 
-                  <?php the_content(); ?>
+
+                  <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" >
+		  <?php 
+			$first_image = catch_that_image();
+			if($first_image != "") {
+				echo "<img src='" . catch_that_image() . "' />";
+			} else {
+				the_post_thumbnail();
+			} 
+		  ?>
+		  </a>
+
+
+                  <?php the_excerpt(); ?>
 
                   <?php custom_link_pages(array(
                     'before' => '<nav class="pagination"><ul>' . __(''),
@@ -91,20 +103,20 @@
                             'echo' => 1 )
                             ); ?>
 
-                          </section><!-- end of .post-entry -->  
+                          </section><!-- end of .post-entry -->
 
                         </div>
 
                       </div><!-- /row -->
                     </div> <!-- /container -->
-                  </div> 
+                  </div>
 
 
                 </article><!-- end of #post-<?php the_ID(); ?> -->
 
 
 
-              <?php endwhile; ?> 
+              <?php endwhile; ?>
 
               <?php if (  $wp_query->max_num_pages > 1 ) : ?>
               <div class="container">
@@ -144,7 +156,7 @@
        </div>
        </article>
 
-     <?php endif; ?>  
+     <?php endif; ?>
 
 
    </div> <!-- /col-lg-8 -->

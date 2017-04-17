@@ -1,70 +1,57 @@
 <?php
 /**
- Template Name: Services
- *
- *
- * @file           template-services.php
- * @package        StanleyWP 
- * @author         Brad Williams & Carlos Alvarez
- * @copyright      2003 - 2014 Gents Themes
- * @license        license.txt
- * @version        Release: 3.0.3
- * @link           http://codex.wordpress.org/Theme_Development#Pages_.28page.php.29
- * @since          available since Release 1.0
+ * @package WordPress
+ * @subpackage StanleyWP
+ * Template Name: Services
  */
- ?>
+?>
  <?php get_header(); ?>
 
  <div class="container pt">
 
   <div class="row mt">
-    <div class="col-lg-6 col-lg-offset-3 centered">
-      <?php if( rwmb_meta( 'wtf_portfolio_title' ) !== '' ) { ?>
-      <?php } ?> 
 
-      <?php if (have_posts()) : ?>
+	<div class="col-lg-8 col-lg-offset-2 centered">
 
-      <?php while (have_posts()) : the_post(); ?>
-      <h1><?php the_title(); ?></h1>
-      <?php the_content(); ?>
-      <?php endwhile; ?> 
-    <?php endif; ?> 
+        <h1 style="max-width:340px;"><?php the_title(); ?></h1>
+        <?php the_content(); ?>
 
-    </div>
+	</div>
+
   </div>
 
+
   <?php
-  $loop = new WP_Query(array('post_type' => 'services', 'posts_per_page' => -1));
-  $count =0;
+  $services_loop = new WP_Query(array(
+      'post_type' => 'services',
+      'posts_per_page' => -1)
+    );
   ?>
 
 
-  <div class="row mt centered services">
-
-    <?php if ( $loop ) : 
-    while ( $loop->have_posts() ) : $loop->the_post(); ?>
-
-    <div class="col-lg-6">
-     <?php if ( has_post_thumbnail()) : ?>
-     <!--<a class="zoom green" href="<?php //the_permalink(); ?>" title="<?php //the_title_attribute(); ?>" > -->
-      <div class="logo-container"><?php the_post_thumbnail(); ?></div>
-     <!--</a>-->
-  <?php endif; ?>
-  
-  <?php if(bi_get_data('project_title', '1')) {?>
-  	<h3><?php the_title(); ?></h3>
-    <div class="port-desc"><?php the_content(); ?></div>
-  <?php } ?>
-</div> <!-- /col -->
+  <div class="row mt services">
 
 
-<?php endwhile; else: ?>
+    <?php while ( $services_loop->have_posts() ) : $services_loop->the_post(); ?>
+
+      <?php
+      	$color = get_field('color');
+      	$image = get_field('image');
+        $post_slug = get_post_field( 'post_name', get_post() );
+      ?>
+
+      <div id="<?php echo $post_slug; ?>" class="service <?php echo $color; ?>">
+        <div class="service-logo-container">
+  	       <img src="<?php echo $image; ?>" />
+        </div>
+        <div class="service-desc">
+            <h3><?php the_title(); ?></h3>
+            <div class="port-desc"><?php the_content(); ?></div>
+        </div>
+      </div>
+    <?php endwhile; wp_reset_postdata(); ?>
+
 </div>
-
-
-<div class="error-not-found">Sorry, no portfolio entries for while.</div>
-
-<?php endif; ?>
 
 
 

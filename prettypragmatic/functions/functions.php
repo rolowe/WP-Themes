@@ -4,8 +4,8 @@
  *
  *
  * @file           functions.php
- * @package        StanleyWP 
- * @author         Brad Williams & Carlos Alvarez 
+ * @package        StanleyWP
+ * @author         Brad Williams & Carlos Alvarez
  * @copyright      2011 - 2014 Gents Themes
  * @license        license.txt
  * @version        Release: 3.0.3
@@ -42,7 +42,7 @@ if (!function_exists('gents_setup')):
             $locale_file = get_template_directory().'/languages/$locale.php';
             if (is_readable( $locale_file))
 	            require_once( $locale_file);
-						
+
         /**
          * Add callback for custom TinyMCE editor stylesheets. (editor-style.css)
          * @see http://codex.wordpress.org/Function_Reference/add_editor_style
@@ -63,7 +63,7 @@ if (!function_exists('gents_setup')):
         add_theme_support('post-thumbnails');
 
 
-        $options = get_option('gents_theme_options');    
+        $options = get_option('gents_theme_options');
     }
 
 endif;
@@ -92,14 +92,14 @@ add_filter('wp_page_menu', 'gents_wp_page_menu');
 
 /**
  * Filter 'get_comments_number'
- * 
- * Filter 'get_comments_number' to display correct 
- * number of comments (count only comments, not 
+ *
+ * Filter 'get_comments_number' to display correct
+ * number of comments (count only comments, not
  * trackbacks/pingbacks)
  *
  * Courtesy of Chip Bennett
  */
-function gents_comment_count( $count ) {  
+function gents_comment_count( $count ) {
 	if ( ! is_admin() ) {
 		global $id;
 		$comments_by_type = &separate_comments(get_comments('status=approve&post_id=' . $id));
@@ -112,8 +112,8 @@ add_filter('get_comments_number', 'gents_comment_count', 0);
 
 /**
  * wp_list_comments() Pings Callback
- * 
- * wp_list_comments() Callback function for 
+ *
+ * wp_list_comments() Callback function for
  * Pings (Trackbacks/Pingbacks)
  */
 function gents_comment_list_pings( $comment ) {
@@ -136,7 +136,7 @@ add_filter('excerpt_length', 'gents_excerpt_length');
  * Returns a "Read more" link for excerpts
  */
 function gents_read_more() {
-    return ' <a href="' . get_permalink() . '">' . __('<div class="read-more"><p>Read more &#8250;</p></div><!-- end of .read-more -->', 'gents') . '</a>';
+    return ' <a href="' . get_permalink() . '">' . __('<div class="read-more"><p>read more</p></div><!-- end of .read-more -->', 'gents') . '</a>';
 }
 
 /**
@@ -165,9 +165,9 @@ add_filter('get_the_excerpt', 'gents_custom_excerpt_more');
  */
 
 function my_more_link( $more_link, $more_link_text ) {
-    
+
     $read_more_text = bi_get_data('read_more_text', '' );
-            
+
     return str_replace( $more_link_text, '<p><a href="' . get_permalink() . '" class="readmore">'.$read_more_text.' </a> </p>', $more_link );
 }
 
@@ -298,7 +298,7 @@ function gents_breadcrumb_lists() {
     if (!function_exists('gents_js')) {
 
         function gents_js() {
-			// JS at the bottom for fast page loading. 
+			// JS at the bottom for fast page loading.
 			// except for Modernizr which enables HTML5 elements & feature detects.
 			wp_enqueue_script('modernizr', get_template_directory_uri() . '/js/modernizr.custom.js', array('jquery'), '2.6.2', false);
             wp_enqueue_script('magnific', get_template_directory_uri() . '/js/magnific.min.js', array('jquery'), '0.9.4', false);
@@ -310,13 +310,13 @@ function gents_breadcrumb_lists() {
      * A comment reply.
      */
         function gents_enqueue_comment_reply() {
-    if ( is_singular() && comments_open() && get_option('thread_comments')) { 
-            wp_enqueue_script('comment-reply'); 
+    if ( is_singular() && comments_open() && get_option('thread_comments')) {
+            wp_enqueue_script('comment-reply');
         }
     }
 
     add_action( 'wp_enqueue_scripts', 'gents_enqueue_comment_reply' );
-	
+
     /**
      * Where the post has no post title, but must still display a link to the single-page post view.
      */
@@ -365,7 +365,7 @@ function gents_breadcrumb_lists() {
             'after_widget' => '</div>'
         ));
     }
-	
+
     add_action('widgets_init', 'gents_widgets_init');
 
 
@@ -385,6 +385,37 @@ function create_services_post_type() {
   );
 }
 
+
+add_action( 'init', 'create_clients_post_type' );
+function create_clients_post_type() {
+  register_post_type( 'clients',
+    array(
+      'labels' => array(
+        'name' => __( 'Clients' ),
+        'singular_name' => __( 'Client' )
+      ),
+      'public' => true,
+      'has_archive' => true,
+      'supports' => array( 'title', 'editor', 'thumbnail', 'excerpt')
+    )
+  );
+}
+
+
+
+function catch_that_image() {
+  global $post, $posts;
+  $first_img = '';
+  ob_start();
+  ob_end_clean();
+  $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
+  $first_img = $matches [1] [0];
+
+  if(empty($first_img)){ //Defines a default image
+    $first_img = "";
+  }
+  return $first_img;
+}
 
 
 ?>
